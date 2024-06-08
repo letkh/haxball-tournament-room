@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "dotenv": "^16.4.5"
+  },
+  "name": "haxball-tournament-room",
+  "description": "A simple server that gives access by a auth sent in discord and also stores data in a database",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "letkh",
+  "license": "MIT"
+}
