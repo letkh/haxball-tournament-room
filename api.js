@@ -11,7 +11,7 @@ const pool = mysql.createPool({
 
 //MYSQL FUNCTIONS
 
-function initialisation(req, res) {
+function initialisation(req, res) { // nowhere in use
   const query = `CREATE TABLE IF NOT EXISTS users (
 'id' INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 auth text not null,
@@ -20,9 +20,9 @@ role int not null
 )`;
   pool.query(query, function (err, data) {
     if (err) {
-        console.log(err);
-        }
-        res.end(JSON.stringify(true));
+      console.log(err);
+    }
+    res.end(JSON.stringify(true));
   });
 }
 

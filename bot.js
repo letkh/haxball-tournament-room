@@ -382,7 +382,7 @@ let commands = {
   switch: {
     aliases: ["switch", "sw"],
     roles: 1,
-    desc: `This command reverses the teams`,
+    desc: `This command switching the teams.`,
     function: switchCommand,
   },
   add: {
