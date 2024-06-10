@@ -54,6 +54,51 @@ function getAdmin(req, res) {
   });
 }
 
+function addPlayer(req, res) {
+  const query = `INSERT INTO users (auth, name, role) VALUES ('${req.body.auth}', '${req.body.name}', 0)`;
+  pool.query(query, function (err, data) {
+    if (err) {
+      res.end(JSON.stringify(false));
+      console.log(err);
+      return false;
+    }
+    res.end(JSON.stringify(true));
+  });
+}
+
+function deletePlayer(req, res) {
+  const query = `DELETE FROM users WHERE auth = '${req.body.auth}' OR name = '${req.body.name}'`;
+  pool.query(query, function (err, data) {
+    if (err) {
+      res.end(JSON.stringify(false));
+      console.log(err);
+      return false;
+    }
+    res.end(JSON.stringify(true));
+  });
+}
+
+function renamePlayer(req, res) {
+  const query = `UPDATE users SET ame = ${req.body.name} WHERE auth = '${req.body.auth}'`;
+  pool.query(query, function (err, data) {
+    if (err) {
+      console.log(err);
+    }
+    res.end(JSON.stringify(true));
+  });
+}
+
+
+function setRole(req, res) {
+  const query = `UPDATE users SET role = ${req.body.role} WHERE auth = '${req.body.auth}'`;
+  pool.query(query, function (err, data) {
+    if (err) {
+      console.log(err);
+    }
+    res.end(JSON.stringify(true));
+  });
+}
+
 app.get("/", function (req, res) {
   res.json("hello!");
 });
@@ -68,6 +113,15 @@ app.post("/mysql", (req, res) => {
       break;
     case "getAdmin":
       getAdmin(req, res);
+      break;
+    case "addPlayer":
+      addPlayer(req, res);
+      break;
+    case "deletePlayer":
+      deletePlayer(req, res);
+      break;
+    case "setRole":
+      setRole(req, res);
       break;
   }
 });

@@ -69,14 +69,110 @@ function getAdmin(player) {
     });
 }
 
+function addPlayer(player, auth, name) {
+  MySqlRequest(mysql_url, "POST", {
+    mode: "addPlayer",
+    auth: `${auth}`,
+    name: `${name}`,
+  })
+    .then(function (res) {
+      if (res.status !== 200) {
+        console.log("Failed test - Status Code: " + res.status);
+      } else {
+        res.json().then(function (data) {
+          if (data) {
+            room.sendAnnouncement("MySQL Status: OK", player.id);
+          } else {
+            room.sendAnnouncement("MySQL Status: Failed", player.id);
+          }
+        });
+      }
+    })
+    .catch(function (err) {
+      console.log("Fetch Error :-S", err);
+    });
+}
+
+function deletePlayer(player, auth, name) {
+  MySqlRequest(mysql_url, "POST", {
+    mode: "deletePlayer",
+    auth: `${auth}`,
+    name: `${name}`,
+  })
+    .then(function (res) {
+      if (res.status !== 200) {
+        console.log("Failed test - Status Code: " + res.status);
+      } else {
+        res.json().then(function (data) {
+          if (data) {
+            room.sendAnnouncement("MySQL Status: OK", player.id);
+          } else {
+            room.sendAnnouncement("MySQL Status: Failed", player.id);
+          }
+        });
+      }
+    })
+    .catch(function (err) {
+      console.log("Fetch Error :-S", err);
+    });
+}
+
+function setRole(player, auth, role) {
+  MySqlRequest(mysql_url, "POST", {
+    mode: "setRole",
+    auth: `${auth}`,
+    role: `${role}`,
+  })
+    .then(function (res) {
+      if (res.status !== 200) {
+        console.log("Failed test - Status Code: " + res.status);
+      } else {
+        res.json().then(function (data) {
+          if (data) {
+            room.sendAnnouncement("MySQL Status: OK", player.id);
+          } else {
+            room.sendAnnouncement("MySQL Status: Failed", player.id);
+          }
+        });
+      }
+    })
+    .catch(function (err) {
+      console.log("Fetch Error :-S", err);
+    });
+}
+
+function setRole(player, auth, name) {
+  MySqlRequest(mysql_url, "POST", {
+    mode: "setRole",
+    auth: `${auth}`,
+    name: `${name}`,
+  })
+    .then(function (res) {
+      if (res.status !== 200) {
+        console.log("Failed test - Status Code: " + res.status);
+      } else {
+        res.json().then(function (data) {
+          if (data) {
+            room.sendAnnouncement("MySQL Status: OK", player.id);
+          } else {
+            room.sendAnnouncement("MySQL Status: Failed", player.id);
+          }
+        });
+      }
+    })
+    .catch(function (err) {
+      console.log("Fetch Error :-S", err);
+    });
+}
+
 /* SOMETHING */
 
 let authArray = [];
 
 room.onPlayerJoin = function (player) {
   authArray[player.id] = { auth: player.auth, name: player.name, role: 0 };
-  // isRegistered(player);
-  // getAdmin(player);
+  isRegistered(player);
+  getAdmin(player);
   room.setPlayerAdmin(player.id, true); // delete in prod.
   room.sendAnnouncement("Добро пожаловать!", player.id);
 };
@@ -106,7 +202,9 @@ function getTime(scores) {
 
 room.onPlayerBallKick = function (player) {
   lastTeamTouched = player.team;
-  lastPlayersTouched[1] = lastPlayersTouched[0];
+  if (lastPlayersTouched[0] != player) {
+    lastPlayersTouched[1] = lastPlayersTouched[0];
+  }
   lastPlayersTouched[0] = player;
 };
 
@@ -212,7 +310,7 @@ room.onGameStart = function (byPlayer) {
 };
 
 room.onGameStop = function () {
-  let stats = '';
+  let stats = "";
   playerGoals.forEach(function (item, index, array) {
     if (item.goals != 0 || item.assists != 0) {
       stats += `@${item.name}(${item.goals}+${item.assists}), `;
