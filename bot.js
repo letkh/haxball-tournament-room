@@ -417,9 +417,9 @@ let authArray = [];
 
 room.onPlayerJoin = function (player) {
   authArray[player.id] = { auth: player.auth, name: player.name, role: 0 };
-  // isRegistered(player);
-  // getAdmin(player);
-  room.setPlayerAdmin(player.id, true)
+  isRegistered(player);
+  getAdmin(player);
+  // room.setPlayerAdmin(player.id, true)
   room.sendAnnouncement("👋 Добро пожаловать!", player.id);
 };
 
