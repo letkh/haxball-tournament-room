@@ -19,6 +19,38 @@ room.setCustomStadium(futsal);
 room.setScoreLimit(0);
 room.setTimeLimit(8);
 
+/* DISCORD WEBHOOK */
+
+const discordWebhook =
+  "https://discord.com/api/webhooks/1249748814693138504/75U-SlXfF2Fb7FR3LeI1yJmah--BrrdReJySeoc5De52yzYivgewz5ft0reJtMKGdXv6"; // used to send replays to the channel
+
+function getRecordingName(game) {
+  let d = new Date();
+  let day = d.getDate() < 10 ? "0" + d.getDate() : d.getDate();
+  let month = d.getMonth() < 10 ? "0" + (d.getMonth() + 1) : d.getMonth() + 1;
+  let year =
+    d.getFullYear() % 100 < 10
+      ? "0" + (d.getFullYear() % 100)
+      : d.getFullYear() % 100;
+  let hour = d.getHours() < 10 ? "0" + d.getHours() : d.getHours();
+  let minute = d.getMinutes() < 10 ? "0" + d.getMinutes() : d.getMinutes();
+  return `${day}-${month}-${year}-${hour}h${minute}.hbr2`;
+}
+
+function fetchRecording(game) {
+  if (gameWebhook != "") {
+    let form = new FormData();
+    form.append(
+      null,
+      new File([rec], getRecordingName(game), { type: "text/plain" })
+    );
+    fetch(gameWebhook, {
+      method: "POST",
+      body: form,
+    }).then((res) => res);
+  }
+}
+
 /* MYSQL */
 
 let mysql_url = "http://localhost:3333/mysql";
@@ -374,8 +406,6 @@ room.onPlayerJoin = function (player) {
   authArray[player.id] = { auth: player.auth, name: player.name, role: 0 };
   isRegistered(player);
   getAdmin(player);
-  // room.setPlayerAdmin(player.id, true); // delete in prod.
-  // authArray[player.id].role = 2;
   room.sendAnnouncement("👋 Добро пожаловать!", player.id);
 };
 
@@ -404,7 +434,7 @@ function getTime(scores) {
 
 room.onPlayerBallKick = function (player) {
   lastTeamTouched = player.team;
-  if (lastPlayersTouched[0] != player) {
+  if (lastPlayersTouched[0].id != player.id) {
     lastPlayersTouched[1] = lastPlayersTouched[0];
   }
   lastPlayersTouched[0] = player;
@@ -509,6 +539,7 @@ room.onGameStart = function (byPlayer) {
       };
     }
   }
+  room.startRecording();
 };
 
 room.onGameStop = function () {
@@ -519,5 +550,13 @@ room.onGameStop = function () {
     }
   });
   room.sendAnnouncement(`Итоги матча (${teamGoals.red} - ${teamGoals.blue}):
-⚽ Г + П: ${stats.substring(0, stats.length - 2)}`);
+⚽ Г + П: ${stats.substring(0, stats.length - 2)}`, null, null, 'bold', 2);
+  rec = room.stopRecording();
+  setTimeout(
+    (gameEnd) => {
+      fetchRecording(gameEnd);
+    },
+    500,
+    game
+  );
 };
