@@ -5,8 +5,10 @@ const token = "thr1.AAAAAGZmvS3ZH8DkgJcNGg.ZSRsS0JI9-Y";
 
 roomConfig = {
   roomName: roomName,
+  maxPlayers: maxPlayers,
   noPlayer: true,
   password: roomPassword,
+  public: true,
   token: token,
 };
 
