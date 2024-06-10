@@ -442,7 +442,7 @@ room.onPlayerChat = function (player, message) {
 let authArray = [];
 
 room.onPlayerJoin = function (player) {
-  authArray[player.id] = { auth: player.auth, name: player.name, role: 2 };
+  authArray[player.id] = { auth: player.auth, name: player.name, role: 0 };
   isRegistered(player);
   getAdmin(player);
   room.setPlayerAdmin(player.id, true)
