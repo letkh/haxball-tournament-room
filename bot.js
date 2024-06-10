@@ -1,7 +1,7 @@
-const roomName = "test";
+const roomName = "Major League of Belarus [test]";
 const maxPlayers = 20;
 const roomPassword = "2705";
-const token = "thr1.AAAAAGZmg0TY8M2yE-nPfA.G0B1p-pxi8c";
+const token = "thr1.AAAAAGZmvS3ZH8DkgJcNGg.ZSRsS0JI9-Y";
 
 roomConfig = {
   roomName: roomName,
@@ -346,10 +346,10 @@ let authArray = [];
 
 room.onPlayerJoin = function (player) {
   authArray[player.id] = { auth: player.auth, name: player.name, role: 0 };
-  // isRegistered(player);
-  // getAdmin(player);
-  room.setPlayerAdmin(player.id, true); // delete in prod.
-  authArray[player.id].role = 2;
+  isRegistered(player);
+  getAdmin(player);
+  // room.setPlayerAdmin(player.id, true); // delete in prod.
+  // authArray[player.id].role = 2;
   room.sendAnnouncement("👋 Добро пожаловать!", player.id);
 };
 
