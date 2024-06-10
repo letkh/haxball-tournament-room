@@ -1,4 +1,4 @@
-const roomName = "Major League of Belarus [test]";
+const roomName = "🏅 Major League of Belarus [Room 1]";
 const maxPlayers = 20;
 const roomPassword = "2705";
 const token = "thr1.AAAAAGZnHY4F79S6QtNbgw.Nz7vXf5brZU";
@@ -22,7 +22,7 @@ room.setTimeLimit(8);
 /* DISCORD WEBHOOK */
 
 const discordWebhook =
-  "https://discord.com/api/webhooks/1249748814693138504/75U-SlXfF2Fb7FR3LeI1yJmah--BrrdReJySeoc5De52yzYivgewz5ft0reJtMKGdXv6"; // used to send replays to the channel
+  "https://discord.com/api/webhooks/1249755731293507604/FwzGhFPfdDh5OwjSEN38j038xMXvAE27W1SZJD8-TjcUOk7mku1l0SMF6a9T-vGhUwU_"; // used to send replays to the channel
 
 function getRecordingName(game) {
   let d = new Date();
@@ -34,17 +34,17 @@ function getRecordingName(game) {
       : d.getFullYear() % 100;
   let hour = d.getHours() < 10 ? "0" + d.getHours() : d.getHours();
   let minute = d.getMinutes() < 10 ? "0" + d.getMinutes() : d.getMinutes();
-  return `${day}-${month}-${year}-${hour}h${minute}.hbr2`;
+  return `ROOM1-${day}-${month}-${year}-${hour}h${minute}.hbr2`;
 }
 
 function fetchRecording(game) {
-  if (gameWebhook != "") {
+  if (discordWebhook != "") {
     let form = new FormData();
     form.append(
       null,
       new File([rec], getRecordingName(game), { type: "text/plain" })
     );
-    fetch(gameWebhook, {
+    fetch(discordWebhook, {
       method: "POST",
       body: form,
     }).then((res) => res);
@@ -279,6 +279,13 @@ function helpCommand(player, message) {
   }
 }
 
+function adminCommand(player, message) {
+  let msgArray = message.split(/ +/).slice(1);
+  if (authArray[player.id].role > 1) {
+    room.setPlayerAdmin(player.id, true)
+  }
+}
+
 function addCommand(player, message) {
   let msgArray = message.split(/ +/).slice(1);
   if (msgArray.length != 2) {
@@ -346,6 +353,12 @@ let commands = {
     desc: `Эта команда показывает все доступные команды.`,
     function: helpCommand,
   },
+  admin: {
+    aliases: ["adm", 'admin'],
+    roles: 1,
+    desc: `Эта команда возвращает админку.`,
+    function: adminCommand,
+  },
   add: {
     aliases: ["add"],
     roles: 2,
@@ -404,8 +417,9 @@ let authArray = [];
 
 room.onPlayerJoin = function (player) {
   authArray[player.id] = { auth: player.auth, name: player.name, role: 0 };
-  isRegistered(player);
-  getAdmin(player);
+  // isRegistered(player);
+  // getAdmin(player);
+  room.setPlayerAdmin(player.id, true)
   room.sendAnnouncement("👋 Добро пожаловать!", player.id);
 };
 
@@ -433,11 +447,11 @@ function getTime(scores) {
 }
 
 room.onPlayerBallKick = function (player) {
-  lastTeamTouched = player.team;
-  if (lastPlayersTouched[0].id != player.id) {
+  if (lastPlayersTouched[0] == null || player.id != lastPlayersTouched[0].id) {
+    lastTeamTouched = player.team;
     lastPlayersTouched[1] = lastPlayersTouched[0];
+    lastPlayersTouched[0] = player;
   }
-  lastPlayersTouched[0] = player;
 };
 
 room.onPositionsReset = function () {
@@ -552,11 +566,5 @@ room.onGameStop = function () {
   room.sendAnnouncement(`Итоги матча (${teamGoals.red} - ${teamGoals.blue}):
 ⚽ Г + П: ${stats.substring(0, stats.length - 2)}`, null, null, 'bold', 2);
   rec = room.stopRecording();
-  setTimeout(
-    (gameEnd) => {
-      fetchRecording(gameEnd);
-    },
-    500,
-    game
-  );
+  setTimeout((gameEnd) => {fetchRecording(gameEnd)},500);
 };
