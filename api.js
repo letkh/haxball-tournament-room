@@ -66,8 +66,8 @@ function addPlayer(req, res) {
   });
 }
 
-function deletePlayer(req, res) {
-  const query = `DELETE FROM users WHERE auth = '${req.body.auth}' OR name = '${req.body.name}'`;
+function removePlayer(req, res) {
+  const query = `DELETE FROM users WHERE auth = '${req.body.auth}'`;
   pool.query(query, function (err, data) {
     if (err) {
       res.end(JSON.stringify(false));
@@ -79,7 +79,7 @@ function deletePlayer(req, res) {
 }
 
 function renamePlayer(req, res) {
-  const query = `UPDATE users SET ame = ${req.body.name} WHERE auth = '${req.body.auth}'`;
+  const query = `UPDATE users SET name = ${req.body.name} WHERE auth = '${req.body.auth}'`;
   pool.query(query, function (err, data) {
     if (err) {
       console.log(err);
@@ -117,8 +117,11 @@ app.post("/mysql", (req, res) => {
     case "addPlayer":
       addPlayer(req, res);
       break;
-    case "deletePlayer":
-      deletePlayer(req, res);
+    case "removePlayer":
+      removePlayer(req, res);
+      break;
+    case "renamePlayer":
+      renamePlayer(req, res);
       break;
     case "setRole":
       setRole(req, res);
