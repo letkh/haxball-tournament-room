@@ -2,6 +2,7 @@ const roomName = "Major League of Belarus [test]";
 const maxPlayers = 20;
 const roomPassword = "2705";
 const token = "thr1.AAAAAGZmvS3ZH8DkgJcNGg.ZSRsS0JI9-Y";
+const futsal = `{"name":"Futsal 3x3 4x4","height":339,"width":755,"maxViewWidth":0,"cameraFollow":"ball","spawnDistance":310,"kickOffReset":"partial","bg":{"type":"hockey","width":665,"height":290,"kickOffRadius":80,"cornerRadius":0,"color":"718C5A","goalLine":0},"canBeStored":true,"redSpawnPoints":[],"blueSpawnPoints":[],"playerPhysics":{"bCoef":0.5,"invMass":0.5,"damping":0.96,"acceleration":0.11,"kickingAcceleration":0.1,"kickingDamping":0.96,"kickStrength":7,"cGroup":[],"gravity":[0,0],"radius":15,"kickback":0},"ballPhysics":"disc0","segments":[{"v0":0,"v1":1,"bias":0,"bCoef":1,"curve":0,"vis":false,"cMask":["ball"],"cGroup":["wall"],"color":"000000"},{"v0":2,"v1":3,"bias":0,"bCoef":1,"curve":0,"vis":false,"cMask":["ball"],"cGroup":["wall"],"color":"000000"},{"v0":4,"v1":5,"bias":0,"bCoef":1,"curve":0,"vis":false,"cMask":["ball"],"cGroup":["wall"],"color":"000000"},{"v0":6,"v1":7,"bias":0,"bCoef":1,"curve":0,"vis":false,"cMask":["ball"],"cGroup":["wall"],"color":"000000"},{"v0":8,"v1":9,"bias":0,"bCoef":0.1,"curve":0,"vis":false,"cMask":["red","blue"],"cGroup":["redKO","blueKO"],"color":"000000"},{"v0":9,"v1":10,"bias":0,"bCoef":0.1,"curve":180,"vis":false,"cMask":["red","blue"],"cGroup":["blueKO"],"color":"000000"},{"v0":10,"v1":9,"bias":0,"bCoef":0.1,"curve":180,"vis":false,"cMask":["red","blue"],"cGroup":["redKO"],"color":"000000"},{"v0":10,"v1":11,"bias":0,"bCoef":0.1,"curve":0,"vis":false,"cMask":["red","blue"],"cGroup":["redKO","blueKO"],"color":"000000"},{"v0":12,"v1":2,"bias":0,"bCoef":0.1,"curve":35,"vis":true,"cMask":["ball"],"cGroup":["wall"],"color":"FFFFFF"},{"v0":6,"v1":13,"bias":0,"bCoef":0.1,"curve":35,"vis":true,"cMask":["ball"],"cGroup":["wall"],"color":"FFFFFF"},{"v0":1,"v1":14,"bias":0,"bCoef":0.1,"curve":35,"vis":true,"cMask":["ball"],"cGroup":["wall"],"color":"FFFFFF"},{"v0":15,"v1":5,"bias":0,"bCoef":0.1,"curve":35,"vis":true,"cMask":["ball"],"cGroup":["wall"],"color":"FFFFFF"},{"v0":14,"v1":12,"bias":0,"bCoef":0.1,"curve":35,"vis":true,"cMask":["ball"],"cGroup":["wall"],"color":"FFFFFF"},{"v0":13,"v1":15,"bias":0,"bCoef":0.1,"curve":35,"vis":true,"cMask":["ball"],"cGroup":["wall"],"color":"FFFFFF"},{"v0":16,"v1":17,"bias":0,"bCoef":0,"curve":89.99999999999999,"vis":true,"cMask":[],"cGroup":["wall"],"color":"FFFFFF"},{"v0":19,"v1":18,"bias":0,"bCoef":0,"curve":89.99999999999999,"vis":true,"cMask":[],"cGroup":["wall"],"color":"FFFFFF"},{"v0":21,"v1":20,"bias":0,"bCoef":0,"curve":89.99999999999999,"vis":true,"cMask":[],"cGroup":["wall"],"color":"FFFFFF"},{"v0":22,"v1":23,"bias":0,"bCoef":0,"curve":89.99999999999999,"vis":true,"cMask":[],"cGroup":["wall"],"color":"FFFFFF"},{"v0":17,"v1":21,"bias":0,"bCoef":0,"curve":0,"vis":true,"cMask":[],"cGroup":["wall"],"color":"FFFFFF"},{"v0":19,"v1":23,"bias":0,"bCoef":0,"curve":0,"vis":true,"cMask":[],"cGroup":["wall"],"color":"FFFFFF"},{"v0":1,"v1":0,"bias":0,"bCoef":1,"curve":0,"vis":true,"cMask":["ball"],"cGroup":["wall"],"color":"FFFFFF"},{"v0":5,"v1":4,"bias":0,"bCoef":1,"curve":0,"vis":true,"cMask":["ball"],"cGroup":["wall"],"color":"FFFFFF"},{"v0":2,"v1":3,"bias":0,"bCoef":1,"curve":0,"vis":true,"cMask":["ball"],"cGroup":["wall"],"color":"FFFFFF"},{"v0":6,"v1":7,"bias":0,"bCoef":1,"curve":0,"vis":true,"cMask":["ball"],"cGroup":["wall"],"color":"FFFFFF"},{"v0":0,"v1":24,"bias":0,"bCoef":1,"curve":0,"vis":true,"cMask":["ball"],"cGroup":["wall"],"color":"FFFFFF"},{"v0":3,"v1":25,"bias":0,"bCoef":1,"curve":0,"vis":true,"cMask":["ball"],"cGroup":["wall"],"color":"FFFFFF"},{"v0":26,"v1":27,"bias":0,"bCoef":0,"curve":0,"vis":true,"cMask":[],"cGroup":["wall"],"color":"FFFFFF"},{"v0":9,"v1":10,"bias":0,"bCoef":0,"curve":180,"vis":true,"cMask":[],"cGroup":["wall"],"color":"FFFFFF"},{"v0":29,"v1":28,"bias":0,"bCoef":0,"curve":180,"vis":true,"cMask":[],"cGroup":["wall"],"color":"FFFFFF"},{"v0":2,"v1":1,"bias":0,"bCoef":0,"curve":0,"vis":true,"cMask":[],"cGroup":["wall"],"color":"FFFFFF"},{"v0":6,"v1":5,"bias":0,"bCoef":0,"curve":0,"vis":true,"cMask":[],"cGroup":["wall"],"color":"FFFFFF"},{"v0":30,"v1":31,"bias":0,"bCoef":1,"curve":0,"vis":false,"cMask":["ball"],"cGroup":["wall"],"color":"FFFFFF"},{"v0":32,"v1":33,"bias":0,"bCoef":1,"curve":0,"vis":false,"cMask":["ball"],"cGroup":["wall"],"color":"FFFFFF"},{"v0":34,"v1":35,"bias":0,"bCoef":1,"curve":0,"vis":false,"cMask":["ball"],"cGroup":["wall"],"color":"FFFFFF"},{"v0":36,"v1":37,"bias":0,"bCoef":1,"curve":0,"vis":false,"cMask":["ball"],"cGroup":["wall"],"color":"FFFFFF"}],"vertexes":[{"x":-665,"y":290,"bCoef":1,"cMask":["ball"],"cGroup":["wall"]},{"x":-665,"y":80,"bCoef":1,"cMask":["ball"],"cGroup":["wall"]},{"x":-665,"y":-80,"bCoef":1,"cMask":["ball"],"cGroup":["wall"]},{"x":-665,"y":-290,"bCoef":1,"cMask":["ball"],"cGroup":["wall"]},{"x":665,"y":290,"bCoef":1,"cMask":["ball"],"cGroup":["wall"]},{"x":665,"y":80,"bCoef":1,"cMask":["ball"],"cGroup":["wall"]},{"x":665,"y":-80,"bCoef":1,"cMask":["ball"],"cGroup":["wall"]},{"x":665,"y":-290,"bCoef":1,"cMask":["ball"],"cGroup":["wall"]},{"x":0,"y":339,"bCoef":0.1,"cMask":["red","blue"],"cGroup":["redKO","blueKO"]},{"x":0,"y":80,"bCoef":0.1,"cMask":["red","blue"],"cGroup":["redKO","blueKO"]},{"x":0,"y":-80,"bCoef":0,"cMask":[],"cGroup":["wall"]},{"x":0,"y":-339,"bCoef":0.1,"cMask":["red","blue"],"cGroup":["redKO","blueKO"]},{"x":-693,"y":-80,"bCoef":0.1,"cMask":["ball"],"cGroup":["wall"]},{"x":693,"y":-80,"bCoef":0.1,"cMask":["ball"],"cGroup":["wall"]},{"x":-693,"y":80,"bCoef":0.1,"cMask":["ball"],"cGroup":["wall"]},{"x":693,"y":80,"bCoef":0.1,"cMask":["ball"],"cGroup":["wall"]},{"x":-665,"y":-215,"bCoef":0,"cMask":[],"cGroup":["wall"]},{"x":-500,"y":-50,"bCoef":0,"cMask":[],"cGroup":["wall"]},{"x":665,"y":-215,"bCoef":0,"cMask":[],"cGroup":["wall"]},{"x":500,"y":-50,"bCoef":0,"cMask":[],"cGroup":["wall"]},{"x":-665,"y":215,"bCoef":0,"cMask":[],"cGroup":["wall"]},{"x":-500,"y":50,"bCoef":0,"cMask":[],"cGroup":["wall"]},{"x":665,"y":215,"bCoef":0,"cMask":[],"cGroup":["wall"]},{"x":500,"y":50,"bCoef":0,"cMask":[],"cGroup":["wall"]},{"x":665,"y":290,"bCoef":1,"cMask":["ball"],"cGroup":["wall"]},{"x":665,"y":-290,"bCoef":1,"cMask":["ball"],"cGroup":["wall"]},{"x":0,"y":290,"bCoef":0,"cMask":[],"cGroup":["wall"]},{"x":0,"y":-290,"bCoef":0,"cMask":[],"cGroup":["wall"]},{"x":0,"y":80,"bCoef":0.1,"cMask":["red","blue"],"cGroup":["redKO","blueKO"]},{"x":0,"y":-80,"bCoef":0.1,"cMask":["red","blue"],"cGroup":["redKO","blueKO"]},{"x":674,"y":-80,"bCoef":1,"cMask":["ball"],"cGroup":["wall"]},{"x":674,"y":-290,"bCoef":1,"cMask":["ball"],"cGroup":["wall"]},{"x":-674,"y":-80,"bCoef":1,"cMask":["ball"],"cGroup":["wall"]},{"x":-674,"y":-290,"bCoef":1,"cMask":["ball"],"cGroup":["wall"]},{"x":-674,"y":80,"bCoef":1,"cMask":["ball"],"cGroup":["wall"]},{"x":-674,"y":290,"bCoef":1,"cMask":["ball"],"cGroup":["wall"]},{"x":674,"y":80,"bCoef":1,"cMask":["ball"],"cGroup":["wall"]},{"x":674,"y":290,"bCoef":1,"cMask":["ball"],"cGroup":["wall"]}],"goals":[{"p0":[-674,-80],"p1":[-674,80],"team":"red"},{"p0":[674,80],"p1":[674,-80],"team":"blue"}],"planes":[{"normal":[0,1],"dist":-290,"bCoef":1,"cMask":["ball"],"cGroup":["wall"]},{"normal":[0,-1],"dist":-290,"bCoef":1,"cMask":["ball"],"cGroup":["wall"]},{"normal":[0,1],"dist":-339,"bCoef":0.2,"cMask":["all"],"cGroup":["wall"]},{"normal":[0,-1],"dist":-339,"bCoef":0.2,"cMask":["all"],"cGroup":["wall"]},{"normal":[1,0],"dist":-755,"bCoef":0.2,"cMask":["all"],"cGroup":["wall"]},{"normal":[-1,0],"dist":-755,"bCoef":0.2,"cMask":["all"],"cGroup":["wall"]}],"discs":[{"pos":[0,0],"speed":[0,0],"gravity":[0,0],"radius":6.4,"bCoef":0.5,"invMass":1,"damping":0.99,"color":"EAFF00","cMask":["all"],"cGroup":["ball","kick","score"]},{"pos":[-665,80],"speed":[0,0],"gravity":[0,0],"radius":5,"bCoef":1,"invMass":0,"damping":0.99,"color":"FFE8E8","cMask":["all"],"cGroup":["all"]},{"pos":[-665,-80],"speed":[0,0],"gravity":[0,0],"radius":5,"bCoef":1,"invMass":0,"damping":0.99,"color":"FFE8E8","cMask":["all"],"cGroup":["all"]},{"pos":[665,80],"speed":[0,0],"gravity":[0,0],"radius":5,"bCoef":1,"invMass":0,"damping":0.99,"color":"CFE4E4","cMask":["all"],"cGroup":["all"]},{"pos":[665,-80],"speed":[0,0],"gravity":[0,0],"radius":5,"bCoef":1,"invMass":0,"damping":0.99,"color":"CFE4E4","cMask":["all"],"cGroup":["all"]}],"joints":[]}`;
 
 roomConfig = {
   roomName: roomName,
@@ -13,6 +14,10 @@ roomConfig = {
 };
 
 let room = HBInit(roomConfig);
+
+room.setCustomStadium(futsal);
+room.setScoreLimit(0);
+room.setTimeLimit(8);
 
 /* MYSQL */
 
@@ -251,9 +256,10 @@ function addCommand(player, message) {
       0xe6e6e6,
       "bold"
     );
+    return false;
   }
-  room.sendAnnouncement(`Добавляем игрока ${msgArray[0]}(${msgArray[1]})...`)
-  addPlayer(player, msgArray[0], msgArray[1])
+  room.sendAnnouncement(`Добавляем игрока ${msgArray[0]}(${msgArray[1]})...`);
+  addPlayer(player, msgArray[0], msgArray[1]);
 }
 
 function removeCommand(player, message) {
@@ -265,6 +271,7 @@ function removeCommand(player, message) {
       0xe6e6e6,
       "bold"
     );
+    return false;
   }
   room.sendAnnouncement(`Удаляем игрока с ID:${msgArray[0]}`);
   removePlayer(player, msgArray[0]);
@@ -279,11 +286,26 @@ function renameCommand(player, message) {
       0xe6e6e6,
       "bold"
     );
+    return false;
   }
-  room.sendAnnouncement(`Переимновывем игрока ${msgArray[0]}(${msgArray[1]})`);
+  room.sendAnnouncement(`Переименовывем игрока ${msgArray[0]}(${msgArray[1]})`);
   renamePlayer(player, msgArray[0]);
 }
 
+function roleCommand(player, message) {
+  let msgArray = message.split(/ +/).slice(1);
+  if (msgArray.length != 2) {
+    room.sendAnnouncement(
+      `Неправильное количество аргументов. Пример !role publicID [0 - player, 1 - admin, 2 - host]`,
+      player.id,
+      0xe6e6e6,
+      "bold"
+    );
+    return false;
+  }
+  room.sendAnnouncement(`Переименовывем игрока ${msgArray[0]}(${msgArray[1]})`);
+  setRole(player, msgArray[0], msgArray[1]);
+}
 
 let commands = {
   help: {
@@ -308,11 +330,13 @@ let commands = {
     aliases: ["rename", "rn"],
     roles: 2,
     desc: `Эта команда переименовывет игрока (!rename [publicID] [new name])`,
+    function: renameCommand,
   },
   role: {
     aliases: ["role"],
     roles: 2,
     desc: `Эта команда меняет роль игроку (!role [publicID] [0 - player, 1 - admin, 2 - host])`,
+    function: roleCommand,
   },
 };
 
