@@ -1,2 +1,2 @@
 # haxball tournament room
- A simple server that gives access by a auth sent in discord and also stores data in a database
+ The room is using express to collect data and stores it in MySQL. 
