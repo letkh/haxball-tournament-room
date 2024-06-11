@@ -14,9 +14,11 @@
 #### Download and installation
 I am using the following commands:
 ```sh
+sudo apt install mysql mysql-server
 wget http://repo.mysql.com/mysql-apt-config_0.8.24-1_all.deb
 sudo dpkg -i mysql-apt-config_0.8.24-1_all.deb
 sudo apt update
+sudo apt install mysql-server -y
 ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '1234';
 ```
 My table looks like this:
