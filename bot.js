@@ -279,6 +279,10 @@ function helpCommand(player, message) {
   }
 }
 
+function bbCommand(player, message) {
+  room.kickPlayer(player.id, 'Bye!', false)
+}
+
 function adminCommand(player, message) {
   if (authArray[player.id].role > 1) {
     room.setPlayerAdmin(player.id, true);
@@ -372,6 +376,12 @@ let commands = {
     roles: 0,
     desc: `This command shows all available commands.`,
     function: helpCommand,
+  },
+  bb: {
+    aliases: ['bb'],
+    roles: 0,
+    desc: `This command kicks a player.`,
+    function: bbCommand,
   },
   admin: {
     aliases: ["adm", "admin"],
