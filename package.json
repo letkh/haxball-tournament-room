@@ -7,7 +7,7 @@
     "path": "^0.12.7",
     "puppeteer": "^19.7.5"
   },
-  "name": "haxball-tournament-room",
+  "name": "ts-party-games",
   "description": "A simple server that gives access by a auth sent in discord and also stores data in a database",
   "version": "1.0.0",
   "main": "index.js",
